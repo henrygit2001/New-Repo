@@ -23,30 +23,15 @@ var searchOptions = {
   partialTrips: true,
 };
 
-function Flight_Scan() {
-  flightScanner(searchOptions)
-    .then((response) => {
-      resp = [];
-      brands = response.map((object) =>
-        object.legs.map((object) => object.airline)
-      );
-      duration = response.map((object) => object.duration);
-      price = response.map((object) => object.price);
-      timeofFlight = response.map(
-        (object) =>
-          `${object.departureTime}=>${
-            object.legs[object.legs.length - 1].arrivalTime
-          }`
-      );
-      resp.push(
-        brands,
-        price,
-        duration,
-        timeofFlight,
-        searchOptions.resultsCount
-      );
-    })
-    .catch((err) => (resp = err));
+function Flight_Scan(){
+flightScanner(searchOptions).then((response) => {
+resp=[]
+brands = response.map(object => object.legs.map(object => object.airline));
+duration = response.map(object => object.duration)
+price = response.map(object => object.price);
+timeofFlight = response.map(object => (`${object.departureTime}=>${object.legs[object.legs.length-1].arrivalTime}`));
+resp.push(brands, price, duration,timeofFlight, searchOptions.resultsCount);
+}).catch((err) => (resp = err));
 }
 app.post('/data', function (req, res) {
   searchOptions.resultsCount = Number(req.body.Results_Count);
