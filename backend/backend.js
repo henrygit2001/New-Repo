@@ -23,26 +23,46 @@ var searchOptions = {
   partialTrips: true,
 };
 
-function Flight_Scan(){
-flightScanner(searchOptions).then((response) => {
-resp=[]
-brands = response.map(object => object.legs.map(object => object.airline));
-duration = response.map(object => object.duration)
-price = response.map(object => object.price);
-timeofFlight = response.map(object => (`${object.departureTime}=>${object.legs[object.legs.length-1].arrivalTime}`));
-resp.push(brands, price, duration,timeofFlight, searchOptions.resultsCount);
-}).catch((err) => (resp = err));
+async function Flight_Scan() {
+  flightScanner(searchOptions)
+    .then((response) => {
+      // console.log(response);
+      resp = [];
+      brands = response.map((object) =>
+        object.legs.map((object) => object.airline)
+      );
+      duration = response.map((object) => object.duration);
+      price = response.map((object) => object.price);
+      timeofFlight = response.map(
+        (object) =>
+          `${object.departureTime}=>${
+            object.legs[object.legs.length - 1].arrivalTime
+          }`
+      );
+      resp.push(
+        brands,
+        price,
+        duration,
+        timeofFlight,
+        searchOptions.resultsCount
+      );
+    })
+    .catch((err) => (resp = err));
 }
-app.post('/data', function (req, res) {
+app.post('/', async function (req, res) {
+  await Flight_Scan();
+  res.json(resp);
+});
+app.post('/data', async function (req, res) {
   searchOptions.resultsCount = Number(req.body.Results_Count);
   searchOptions.from = String(req.body.From);
   searchOptions.to = String(req.body.To);
   searchOptions.departureDate = String(req.body.Departure_date);
-  res.send(resp);
-  Flight_Scan();
+  await Flight_Scan();
+  res.json(resp);
 });
 app.get('/', function (req, res) {
-  res.send(resp);
+  res.send('Hello friends');
 });
 app.listen(port);
 
