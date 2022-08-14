@@ -1,7 +1,7 @@
 const datapage = document.querySelector('#result');
 const form = document.getElementById('form');
 
-fetch('http://localhost:6000/')
+fetch('https://final-final-final-app.herokuapp.com/')
   .then((response) => response.json())
   .then((data) => {
     for (let i = 0; i < data[data.length - 1]; i++) {
@@ -22,7 +22,7 @@ fetch('http://localhost:6000/')
 
 form.addEventListener('keypress', (e) => {
   if (e.key === 'Enter') {
-    fetch('http://localhost:6000/data', {
+    fetch('https://final-final-final-app.herokuapp.com/data', {
       method: 'POST',
       headers: {
         'Content-type': 'application/json',
