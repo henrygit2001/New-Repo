@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+</head>
+<style>
+    tr, th, td{
+        border: 2px solid orange;
+    }
+    h1,h2{
+        text-align:center;
+    }
+    table{
+        margin:auto;
+    }
+</style>
+<body>
+    <form id="form">
+    <h1>
+        Airport FlightZ
+        <h2>
+            By Henry Nguyen
+        </h2>
+    </h1>
+    <div div style="display:flex; flex-direction: row;justify-content: center; align-items: center">
+    <h2>
+        To:
+        <input id="box1" type="text" placeholder="Enter AITI Code">
+        </input>
+    </h2>
+    <h2>
+        From:
+        <input id="box2" type="text" placeholder="Enter AITI Code">
+        </input>
+    </h2>
+    <h2>
+        Time of Departure:
+        <input id="box3" type="date">
+        </input>
+    </h2>
+    </div>
+    <h2 style="display:flex; flex-direction: row;justify-content: center; align-items: center">
+        Result Counts:  
+         <input id="box4" type = "number" min="0">
+         </input>
+    </h2>
+</form>
+    <div>
+        <table id="result">
+            <tr>
+                <th>Flight No.</th>
+                <th>Airline Brand</th>
+                <th>Price</th>
+                <th>Duration</th>
+                <th>Flight Times</th>
+            </tr>
+        </table>
+    </div>
+    <script src='index.js'>
+    </script>
+</form>
+</body>
+</html>
