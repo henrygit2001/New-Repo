@@ -41,7 +41,7 @@ app.post('/data', function (req, res) {
   res.send(resp);
   Flight_Scan();
 });
-app.get('/', function (req, res) {
+app.get('https://main--mellow-puffpuff-152dc5.netlify.app/', function (req, res) {
   res.send(resp);
 });
 app.listen(port);
