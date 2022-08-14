@@ -36,7 +36,7 @@ form.addEventListener('keypress', (e) => {
     }).then(
       setTimeout(() => {
         document.location.reload();
-      }, 3000)
+      }, 6000)
     );
   }
 });
