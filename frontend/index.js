@@ -1,7 +1,7 @@
 const datapage = document.querySelector('#result');
 const form = document.getElementById('form');
 
-fetch('https://final-final-final-app.herokuapp.com/')
+fetch('https://final-final-final-app.herokuapp.com')
   .then((response) => response.json())
   .then((data) => {
     for (let i = 0; i < data[data.length - 1]; i++) {
