@@ -48,7 +48,7 @@ function Flight_Scan() {
     })
     .catch((err) => (resp = err));
 }
-app.post('https://final-final-final-app.herokuapp.com/data', function (req, res) {
+app.post('/data', function (req, res) {
   searchOptions.resultsCount = Number(req.body.Results_Count);
   searchOptions.from = String(req.body.From);
   searchOptions.to = String(req.body.To);
@@ -56,7 +56,7 @@ app.post('https://final-final-final-app.herokuapp.com/data', function (req, res)
   res.send(resp);
   Flight_Scan();
 });
-app.get('https://final-final-final-app.herokuapp.com', function (req, res) {
+app.get('/', function (req, res) {
   res.send(resp);
 });
 app.listen(port);
