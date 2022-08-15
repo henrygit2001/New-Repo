@@ -61,7 +61,7 @@ app.post('/data', async function (req, res) {
   await Flight_Scan();
   res.json(resp);
 });
-app.get('/', function (req, res) {
-  res.post(resp);
+app.get('/', async function (req, res) {
+  await res.send(resp);
 });
 app.listen(port, () => console.log('listening on: ' + port));
