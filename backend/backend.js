@@ -26,7 +26,7 @@ var searchOptions = {
 async function Flight_Scan() {
   flightScanner(searchOptions)
     .then((response) => {
-      // console.log(response);
+      console.log(response);
       resp = [];
       brands = response.map((object) =>
         object.legs.map((object) => object.airline)
