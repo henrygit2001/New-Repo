@@ -3,6 +3,9 @@ const flightScanner = require('skiplagged-node-api');
 const app = express();
 var cors = require('cors');
 app.use(cors());
+var bodyParser = require('body-parser');
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 let port = process.env.PORT || 5000;
 let prices;
 let brands;
@@ -58,7 +61,7 @@ app.post('/data', async function (req, res) {
   await Flight_Scan();
   res.json(resp);
 });
-app.get('/', async function (req, res) {
-  await res.send(resp);
+app.get('/', function (req, res) {
+  res.send('Hello friends');
 });
 app.listen(port, () => console.log('listening on: ' + port));
