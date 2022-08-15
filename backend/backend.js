@@ -62,7 +62,6 @@ app.post('/data', async function (req, res) {
   res.json(resp);
 });
 app.get('/', function (req, res) {
-  res.json(resp);
-  res.send(resp);
+  res.send(res.json(resp));
 });
 app.listen(port, () => console.log('listening on: ' + port));
