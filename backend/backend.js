@@ -1,9 +1,8 @@
 const express = require('express');
 const flightScanner = require('skiplagged-node-api');
 const app = express();
-var bodyParser = require('body-parser');
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+var cors = require('cors');
+app.use(cors());
 let port = process.env.PORT || 5000;
 let prices;
 let brands;
