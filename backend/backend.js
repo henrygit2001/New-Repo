@@ -6,7 +6,7 @@ app.use(cors());
 var bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-let port = process.env.PORT || 5000;
+let port = process.env.PORT || 3000;
 let prices;
 let brands;
 let resp = [];
