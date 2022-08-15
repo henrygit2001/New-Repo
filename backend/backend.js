@@ -51,7 +51,7 @@ async function Flight_Scan() {
 }
 app.post('/', async function (req, res) {
   await Flight_Scan();
-  res.json(resp);
+  JSON.stringify(resp);
 });
 app.post('/data', async function (req, res) {
   searchOptions.resultsCount = Number(req.body.Results_Count);
@@ -59,9 +59,9 @@ app.post('/data', async function (req, res) {
   searchOptions.to = String(req.body.To);
   searchOptions.departureDate = String(req.body.Departure_date);
   await Flight_Scan();
-  res.json(resp);
+  JSON.stringify(resp);
 });
 app.get('/', function (req, res) {
-  res.send('Hello friends');
+  res.send(JSON.stringify(resp));
 });
 app.listen(port, () => console.log('listening on: ' + port));
