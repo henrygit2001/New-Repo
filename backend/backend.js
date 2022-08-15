@@ -55,6 +55,7 @@ app.post('/data', async function (req, res) {
   searchOptions.to = String(req.body.To);
   searchOptions.departureDate = String(req.body.Departure_date);
   await Flight_Scan();
+  res.send(req)
 });
 app.get('/', function (req, res) {
   console.log(resp)
