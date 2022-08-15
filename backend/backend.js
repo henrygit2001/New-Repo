@@ -26,7 +26,8 @@ var searchOptions = {
 async function Flight_Scan() {
   flightScanner(searchOptions)
     .then((response) => {
-      console.log(response);
+      // console.log(response);
+      resp = [];
       brands = response.map((object) =>
         object.legs.map((object) => object.airline)
       );
@@ -48,14 +49,19 @@ async function Flight_Scan() {
     })
     .catch((err) => (resp = err));
 }
+app.post('/', async function (req, res) {
+  await Flight_Scan();
+  res.json(resp);
+});
 app.post('/data', async function (req, res) {
   searchOptions.resultsCount = Number(req.body.Results_Count);
   searchOptions.from = String(req.body.From);
   searchOptions.to = String(req.body.To);
   searchOptions.departureDate = String(req.body.Departure_date);
   await Flight_Scan();
+  res.json(resp);
 });
 app.get('/', function (req, res) {
-  console.log(resp);
   res.send(resp);
+});
 app.listen(port, () => console.log('listening on: ' + port));
