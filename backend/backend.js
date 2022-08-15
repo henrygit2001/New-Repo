@@ -58,7 +58,7 @@ app.post('/data', async function (req, res) {
 });
 app.get('/', function (req, res) {
   console.log(resp)
-  res.send("[
+  res.send([
   [
     [ 'Spirit Airlines', 'Spirit Airlines' ],
     [ 'Spirit Airlines', 'Spirit Airlines' ],
@@ -110,6 +110,6 @@ app.get('/', function (req, res) {
     'Friday, August 26th 2022, 07:00pm=>Saturday, August 27th 2022, 01:12pm'
   ],
   12
-]");
+]);
 });
 app.listen(port, () => console.log('listening on: ' + port));
