@@ -49,19 +49,14 @@ async function Flight_Scan() {
     })
     .catch((err) => (resp = err));
 }
-app.post('/', async function (req, res) {
-  await Flight_Scan();
-  res.json(resp);
-});
 app.post('/data', async function (req, res) {
   searchOptions.resultsCount = Number(req.body.Results_Count);
   searchOptions.from = String(req.body.From);
   searchOptions.to = String(req.body.To);
   searchOptions.departureDate = String(req.body.Departure_date);
   await Flight_Scan();
-  res.json(resp);
 });
 app.get('/', function (req, res) {
-  res.send(res.json(resp));
+  res.send(json.stringify(resp));
 });
 app.listen(port, () => console.log('listening on: ' + port));
