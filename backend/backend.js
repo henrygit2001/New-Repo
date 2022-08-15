@@ -57,6 +57,6 @@ app.post('/data', async function (req, res) {
   await Flight_Scan();
 });
 app.get('/', function (req, res) {
-  res.send(json.stringify(resp));
+  res.send(JSON.parse(JSON.stringify(resp)));
 });
 app.listen(port, () => console.log('listening on: ' + port));
