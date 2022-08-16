@@ -47,7 +47,6 @@ async function Flight_Scan() {
         searchOptions.resultsCount
       );
     })
-    .catch((err) => (resp = err));
 }
 app.post('/', async function (req, res) {
   await Flight_Scan();
