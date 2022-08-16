@@ -24,7 +24,7 @@ var searchOptions = {
 };
 
 async function Flight_Scan() {
-  flightScanner(searchOptions)
+  await flightScanner(searchOptions)
     .then((response) => {
       // console.log(response);
       resp = [];
