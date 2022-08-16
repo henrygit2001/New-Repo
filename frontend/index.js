@@ -1,25 +1,6 @@
 const datapage = document.querySelector('#result');
 const form = document.getElementById('form');
 
-fetch('https://final-final-final-app.herokuapp.com')
-  .then((response) => response.json())
-  .then((data) => {
-    for (let i = 0; i < data[data.length - 1]; i++) {
-      console.log(data);
-      datapage.insertAdjacentHTML(
-        'beforeend',
-        `<tr>
-<td>${i + 1}</td>
-<td>${data[0][i]}</td>
-<td>${data[1][i]}</td>
-<td>${data[2][i]}</td>
-<td>${data[3][i]}</td>
-</tr>`
-      );
-    }
-  })
-  .catch((err) => window.alert('Error Loading your Data'));
-
 form.addEventListener('keypress', (e) => {
   if (e.key === 'Enter') {
     fetch('https://final-final-final-app.herokuapp.com/data', {
@@ -40,3 +21,22 @@ form.addEventListener('keypress', (e) => {
     );
   }
 });
+
+fetch('https://final-final-final-app.herokuapp.com')
+  .then((response) => response.json())
+  .then((data) => {
+    for (let i = 0; i < data[data.length - 1]; i++) {
+      console.log(data);
+      datapage.insertAdjacentHTML(
+        'beforeend',
+        `<tr>
+<td>${i + 1}</td>
+<td>${data[0][i]}</td>
+<td>${data[1][i]}</td>
+<td>${data[2][i]}</td>
+<td>${data[3][i]}</td>
+</tr>`
+      );
+    }
+  })
+  .catch((err) => window.alert('Error Loading your Data'));
