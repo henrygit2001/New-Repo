@@ -20,7 +20,7 @@ var searchOptions = {
   to: To,
   departureDate: departure_Date,
   resultsCount: results_Count,
-  partialTrips: true,
+  partialTrips: false,
 };
 
 async function Flight_Scan() {
