@@ -15,7 +15,7 @@ let From = 'SEA';
 let To = 'LAX';
 let departure_Date = '2022-10-10';
 
-var searchOptions = {
+let searchOptions = {
   from: From,
   to: To,
   departureDate: departure_Date,
