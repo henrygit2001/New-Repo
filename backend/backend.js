@@ -59,7 +59,7 @@ app.post('/data', async function (req, res) {
   searchOptions.departureDate= String(req.body.Departure_date);
   await Flight_Scan();
 });
-app.get('/', function (req, res) {
+app.get('/', async function (req, res) {
   await Flight_Scan();
   res.send(resp);
 });
