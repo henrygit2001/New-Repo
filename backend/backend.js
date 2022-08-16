@@ -60,6 +60,7 @@ app.post('/data', async function (req, res) {
   await Flight_Scan();
 });
 app.get('/', function (req, res) {
+  await Flight_Scan();
   res.send(resp);
 });
 app.listen(port);
