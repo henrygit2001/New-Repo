@@ -53,10 +53,10 @@ app.post('/', async function (req, res) {
   res.send(resp);
 });
 app.post('/data', async function (req, res) {
-  searchOptions.resultsCount = req.body.Results_Count;
-  searchOptions.from = req.body.From;
-  searchOptions.to = req.body.To;
-  searchOptions.departureDate = req.body.Departure_date;
+  searchOptions.resultsCount = Number(req.body.Results_Count);
+  searchOptions.from= String(req.body.From);
+  searchOptions.to= String(req.body.To);
+  searchOptions.departureDate= String(req.body.Departure_date);
   await Flight_Scan();
   res.json(resp);
 });
