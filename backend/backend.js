@@ -6,16 +6,16 @@ app.use(cors());
 var bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-let port = process.env.PORT || 3000;
-let prices;
-let brands;
-let resp = [];
-let results_Count = 5;
-let From = 'SEA';
-let To = 'LAX';
-let departure_Date = '2022-10-10';
+var port = process.env.PORT || 3000;
+var prices;
+var brands;
+var resp = [];
+var results_Count = 5;
+var From = 'SEA';
+var To = 'LAX';
+var departure_Date = '2022-10-10';
 
-let searchOptions = {
+var searchOptions = {
   from: From,
   to: To,
   departureDate: departure_Date,
