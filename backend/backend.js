@@ -52,7 +52,7 @@ app.post('/', async function (req, res) {
   await Flight_Scan();
   res.send(resp);
 });
-app.post('/', async function (req, res) {
+app.post('/data', async function (req, res) {
   searchOptions.resultsCount = Number(req.body.Results_Count);
   searchOptions.from= String(req.body.From);
   searchOptions.to= String(req.body.To);
