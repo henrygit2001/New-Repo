@@ -61,6 +61,6 @@ app.post('/data', async function (req, res) {
 });
 app.get('/', async function (req, res) {
   await Flight_Scan();
-  res.send(resp);
+  res.send(https://skiplagged.com/api/search.php?from=SEA&to=LAX&depart=2023-01-01);
 });
 app.listen(port);
