@@ -3,7 +3,7 @@ const form = document.getElementById('form');
 
 form.addEventListener('keypress', (e) => {
   if (e.key === 'Enter') {
-    fetch('https://final-final-final-app.herokuapp.com/data', {
+    fetch('http://localhost:3000/data', {
       method: 'POST',
       headers: {
         'Content-type': 'application/json',
@@ -22,7 +22,7 @@ form.addEventListener('keypress', (e) => {
   }
 });
 
-fetch('https://skiplagged.com//api/search.php?from=SEA&to=LAX&depart=2023-01-01',{mode: 'no-cors'})
+fetch('http://localhost:3000/')
   .then((response) => response.json())
   .then((data) => {
     for (let i = 0; i < data[data.length - 1]; i++) {
